@@ -6,27 +6,27 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>https://shimi.co.uk/blog/categories/cat_python-rtfm.xml</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/categories/cat_python-rtfm.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://shimi.co.uk/blog/categories/cat_python.xml</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/categories/cat_python.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://shimi.co.uk/blog/categories/python.xml</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/categories/python.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://shimi.co.uk/blog/galleries/rss.xml</loc>
-  <lastmod>2017-07-22T17:51:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/galleries/rss.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://shimi.co.uk/blog/rss.xml</loc>
-  <lastmod>2017-07-22T18:02:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/rss.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://shimi.co.uk/blog/sitemap.xml</loc>
-  <lastmod>2017-07-22T18:02:00Z</lastmod>
+  <loc>https://atleypnorth.github.io/sitemap.xml</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
 </sitemapindex>

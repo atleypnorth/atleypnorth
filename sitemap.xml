@@ -6,59 +6,59 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>https://shimi.co.uk/blog/</loc>
+  <loc>https://atleypnorth.github.io/</loc>
   <lastmod>2017-07-22T18:02:00Z</lastmod>
  </url>
  <url>
-  <loc>https://shimi.co.uk/blog/2016/</loc>
+  <loc>https://atleypnorth.github.io/2016/</loc>
   <lastmod>2016-09-16T20:51:00Z</lastmod>
  </url>
  <url>
-  <loc>https://shimi.co.uk/blog/2017/</loc>
+  <loc>https://atleypnorth.github.io/2017/</loc>
   <lastmod>2017-07-22T18:02:00Z</lastmod>
  </url>
  <url>
-  <loc>https://shimi.co.uk/blog/archive.html</loc>
+  <loc>https://atleypnorth.github.io/archive.html</loc>
+  <lastmod>2017-07-22T18:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/categories/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/categories/cat_python-rtfm/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/categories/cat_python/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/categories/python/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/galleries/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/listings/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/posts/if-vs-in-which-is-faster/</loc>
+  <lastmod>2016-09-16T20:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atleypnorth.github.io/posts/moved-to-github-pages/</loc>
   <lastmod>2017-07-22T18:02:00Z</lastmod>
  </url>
  <url>
-  <loc>https://shimi.co.uk/blog/categories/</loc>
+  <loc>https://atleypnorth.github.io/posts/purepath-is-purely-paths/</loc>
   <lastmod>2016-09-16T20:51:00Z</lastmod>
  </url>
  <url>
-  <loc>https://shimi.co.uk/blog/categories/cat_python-rtfm/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/categories/cat_python/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/categories/python/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/galleries/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/listings/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/posts/if-vs-in-which-is-faster/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/posts/moved-to-github-pages/</loc>
-  <lastmod>2017-07-22T18:02:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/posts/purepath-is-purely-paths/</loc>
-  <lastmod>2016-09-16T20:51:00Z</lastmod>
- </url>
- <url>
-  <loc>https://shimi.co.uk/blog/posts/range-is-not-an-iterator/</loc>
+  <loc>https://atleypnorth.github.io/posts/range-is-not-an-iterator/</loc>
   <lastmod>2016-09-16T20:51:00Z</lastmod>
  </url>
 </urlset>
