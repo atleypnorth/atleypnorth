@@ -7,4 +7,6 @@
 .. description: 
 .. type: text
 
-Write your post here.
+I haved made a copy of this via github pages - only 10 minutes, would of been 5 but I named the repository incorrectly...
+
+But the beauty of Nikola is that the files etc are the same plus it has a single command to build and deploy to GitHub pages.
