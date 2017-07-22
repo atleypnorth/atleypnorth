@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://shimi.co.uk/blog/">
+<meta name="description" content="Patrick's blog.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code, cooking, Cthulhu etc</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://shimi.co.uk/blog/">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/purepath-is-purely-paths/" type="text/html">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://shimi.co.uk/blog/">
+
+                <span id="blog-title">Code, cooking, Cthulhu etc</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/purepath-is-purely-paths/" class="u-url">PurePath is purely paths</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Patrick Morris
+            </span></p>
+            <p class="dateline"><a href="posts/purepath-is-purely-paths/" rel="bookmark"><time class="published dt-published" datetime="2016-09-15T21:02:57+01:00" title="2016-09-15 21:02">2016-09-15 21:02</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/purepath-is-purely-paths/#disqus_thread" data-disqus-identifier="cache/posts/purepath-is-purely-paths.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>pathlib is a useful library for working with files and paths in a platform neutral way, but one thing to beware of...</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import pathlib
+&gt;&gt;&gt; p = pathlib.PurePath(".")
+&gt;&gt;&gt; p
+PureWindowsPath('.')
+&gt;&gt;&gt; p.exists()
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+AttributeError: 'PureWindowsPath' object has no attribute 'exists'
+</pre>
+<p>Unless you remember / check that a PurePath is <em>purely</em> about paths and does nothing about actual physical representation
+of a file the above can puzzle you. Once you remember this fact then it is clear that it should be this</p>
+<pre class="literal-block">
+&gt;&gt;&gt; p = pathlib.Path(".")
+&gt;&gt;&gt; p
+WindowsPath('.')
+&gt;&gt;&gt; p.exists()
+True
+</pre>
+<p>From the pathlib manual page pure paths - 'which provide purely computational operations without I/O'. Again RTFM ....</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/if-vs-in-which-is-faster/" class="u-url">if vs in, which is faster?</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Patrick Morris
+            </span></p>
+            <p class="dateline"><a href="posts/if-vs-in-which-is-faster/" rel="bookmark"><time class="published dt-published" datetime="2016-08-31T14:59:40+01:00" title="2016-08-31 14:59">2016-08-31 14:59</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/if-vs-in-which-is-faster/#disqus_thread" data-disqus-identifier="cache/posts/if-vs-in-which-is-faster.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Sometimes I want to check if at least one value in a set of variables is None. Generally you can write that as an if statement with or clauses. If you have a largish number of variables then it can look little messy so I sometimes a created a list of the variable values and then did a "None in list" but I was wondering that while it may look a bit nicer what hit does it give me in performance?</p>
+<p>Time to fire up Jupyter notebook and see ...</p>
+<pre class="literal-block">
+s="""\
+a=1
+b=2
+(a is None or b is None)
+"""
+
+s2="""\
+a=1
+b=2
+None in [a,b]
+"""
+
+s3="""\
+a=None
+b=2
+(a is None or b is None)
+"""
+
+s3="""\
+a=None
+b=4
+None in [a,b]
+"""
+
+timeit.timeit(stmt=s, number=100000)
+timeit.timeit(stmt=s2, number=100000)
+timeit.timeit(stmt=s3, number=100000)
+timeit.timeit(stmt=s4, number=100000)
+</pre>
+<p>which gives:</p>
+<pre class="literal-block">
+0.004445533733814955
+0.013848952017724514
+0.003327607177197933
+0.010672084987163544
+</pre>
+<p>Not surprisingly using the list and in is slower, but with it being slower by a factor of about 3 it is not something you would want to do in tight loop.</p>
+<p>You can see the short cut logic in the or version makes it quicker when the first element is None, but then the list one is quicker then because it doesnt have to go over the whole list.</p>
+<p>Lesson? Nicer looking code generally is not the faster way ...</p>
+<p>PS making the list a tuple seems to make s2 faster, because it set it as a constant since it is immutable?</p>
+<pre class="literal-block">
+s2b="""\
+a=1
+b=2
+None in (a,b)
+"""
+timeit.timeit(stmt=s2b, number=100000)
+0.01124082
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/range-is-not-an-iterator/" class="u-url">range is not an iterator</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Patrick Morris
+            </span></p>
+            <p class="dateline"><a href="posts/range-is-not-an-iterator/" rel="bookmark"><time class="published dt-published" datetime="2016-08-30T12:19:29+01:00" title="2016-08-30 12:19">2016-08-30 12:19</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/range-is-not-an-iterator/#disqus_thread" data-disqus-identifier="cache/posts/range-is-not-an-iterator.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I was looking to use range to give me a generator that I could use to test something I wrote that would chunk up generators in sub generators. But then I found out this didnt quite work as expected:</p>
+<pre class="literal-block">
+r = range(5)
+for n in r:
+   print(n)
+
+next(r)
+
+
+0
+1
+2
+3
+4
+Traceback (most recent call last):
+ File "rgen.py", line 5, in &lt;module&gt;
+ next(r)
+TypeError: 'range' object is not an iterator
+</pre>
+<p>Which is not I was expecting. You can't do next on a range, but isnt it a generator ??</p>
+<pre class="literal-block">
+def myrange(n):
+    i = 0
+    while i&lt;n:
+    yield i
+    i += 1
+
+for n in myrange(5):
+    print(n)
+r = myrange(5)
+print(next(r))
+print(next(r))
+
+
+0
+1
+2
+3
+4
+0
+1
+</pre>
+<p>So I guess range is doing something else - since actually you can reuse the same range unlike a generator.</p>
+<p>Reading the documentation Sequence types - list, tuple, range I can see where I went wrong. In the Python pocket reference I use it says '...it returns an iterable object that generates values on demand ...', except that it isn't an iterator in the Python sense Iterator types</p>
+<p>The lesson ? Sometimes don't believe everything you read in a book, sometimes the web is right.</p>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+        
+       <script>var disqus_shortname="shimi-1";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:patrick@shimi.co.uk">Patrick Morris</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

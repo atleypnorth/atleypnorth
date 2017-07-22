@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Code, cooking, Cthulhu etc (python)</title><link>https://shimi.co.uk/blog/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://shimi.co.uk/blog/categories/cat_python.xml"></atom:link><language>en</language><lastBuildDate>Fri, 16 Sep 2016 20:51:07 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>if vs in, which is faster?</title><link>https://shimi.co.uk/blog/posts/if-vs-in-which-is-faster/</link><dc:creator>Patrick Morris</dc:creator><description>&lt;div&gt;&lt;p&gt;Sometimes I want to check if at least one value in a set of variables is None. Generally you can write that as an if statement with or clauses. If you have a largish number of variables then it can look little messy so I sometimes a created a list of the variable values and then did a "None in list" but I was wondering that while it may look a bit nicer what hit does it give me in performance?&lt;/p&gt;
+&lt;p&gt;Time to fire up Jupyter notebook and see ...&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+s="""\
+a=1
+b=2
+(a is None or b is None)
+"""
+
+s2="""\
+a=1
+b=2
+None in [a,b]
+"""
+
+s3="""\
+a=None
+b=2
+(a is None or b is None)
+"""
+
+s3="""\
+a=None
+b=4
+None in [a,b]
+"""
+
+timeit.timeit(stmt=s, number=100000)
+timeit.timeit(stmt=s2, number=100000)
+timeit.timeit(stmt=s3, number=100000)
+timeit.timeit(stmt=s4, number=100000)
+&lt;/pre&gt;
+&lt;p&gt;which gives:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+0.004445533733814955
+0.013848952017724514
+0.003327607177197933
+0.010672084987163544
+&lt;/pre&gt;
+&lt;p&gt;Not surprisingly using the list and in is slower, but with it being slower by a factor of about 3 it is not something you would want to do in tight loop.&lt;/p&gt;
+&lt;p&gt;You can see the short cut logic in the or version makes it quicker when the first element is None, but then the list one is quicker then because it doesnt have to go over the whole list.&lt;/p&gt;
+&lt;p&gt;Lesson? Nicer looking code generally is not the faster way ...&lt;/p&gt;
+&lt;p&gt;PS making the list a tuple seems to make s2 faster, because it set it as a constant since it is immutable?&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+s2b="""\
+a=1
+b=2
+None in (a,b)
+"""
+timeit.timeit(stmt=s2b, number=100000)
+0.01124082
+&lt;/pre&gt;&lt;/div&gt;</description><category>python</category><guid>https://shimi.co.uk/blog/posts/if-vs-in-which-is-faster/</guid><pubDate>Wed, 31 Aug 2016 13:59:40 GMT</pubDate></item><item><title>range is not an iterator</title><link>https://shimi.co.uk/blog/posts/range-is-not-an-iterator/</link><dc:creator>Patrick Morris</dc:creator><description>&lt;div&gt;&lt;p&gt;I was looking to use range to give me a generator that I could use to test something I wrote that would chunk up generators in sub generators. But then I found out this didnt quite work as expected:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+r = range(5)
+for n in r:
+   print(n)
+
+next(r)
+
+
+0
+1
+2
+3
+4
+Traceback (most recent call last):
+ File "rgen.py", line 5, in &amp;lt;module&amp;gt;
+ next(r)
+TypeError: 'range' object is not an iterator
+&lt;/pre&gt;
+&lt;p&gt;Which is not I was expecting. You can't do next on a range, but isnt it a generator ??&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+def myrange(n):
+    i = 0
+    while i&amp;lt;n:
+    yield i
+    i += 1
+
+for n in myrange(5):
+    print(n)
+r = myrange(5)
+print(next(r))
+print(next(r))
+
+
+0
+1
+2
+3
+4
+0
+1
+&lt;/pre&gt;
+&lt;p&gt;So I guess range is doing something else - since actually you can reuse the same range unlike a generator.&lt;/p&gt;
+&lt;p&gt;Reading the documentation Sequence types - list, tuple, range I can see where I went wrong. In the Python pocket reference I use it says '...it returns an iterable object that generates values on demand ...', except that it isn't an iterator in the Python sense Iterator types&lt;/p&gt;
+&lt;p&gt;The lesson ? Sometimes don't believe everything you read in a book, sometimes the web is right.&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>https://shimi.co.uk/blog/posts/range-is-not-an-iterator/</guid><pubDate>Tue, 30 Aug 2016 11:19:29 GMT</pubDate></item></channel></rss>

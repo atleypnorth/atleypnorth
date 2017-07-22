@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Code, cooking, Cthulhu etc (python rtfm)</title><link>https://shimi.co.uk/blog/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://shimi.co.uk/blog/categories/cat_python-rtfm.xml"></atom:link><language>en</language><lastBuildDate>Fri, 16 Sep 2016 20:51:07 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>PurePath is purely paths</title><link>https://shimi.co.uk/blog/posts/purepath-is-purely-paths/</link><dc:creator>Patrick Morris</dc:creator><description>&lt;div&gt;&lt;p&gt;pathlib is a useful library for working with files and paths in a platform neutral way, but one thing to beware of...&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; import pathlib
+&amp;gt;&amp;gt;&amp;gt; p = pathlib.PurePath(".")
+&amp;gt;&amp;gt;&amp;gt; p
+PureWindowsPath('.')
+&amp;gt;&amp;gt;&amp;gt; p.exists()
+Traceback (most recent call last):
+  File "&amp;lt;stdin&amp;gt;", line 1, in &amp;lt;module&amp;gt;
+AttributeError: 'PureWindowsPath' object has no attribute 'exists'
+&lt;/pre&gt;
+&lt;p&gt;Unless you remember / check that a PurePath is &lt;em&gt;purely&lt;/em&gt; about paths and does nothing about actual physical representation
+of a file the above can puzzle you. Once you remember this fact then it is clear that it should be this&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; p = pathlib.Path(".")
+&amp;gt;&amp;gt;&amp;gt; p
+WindowsPath('.')
+&amp;gt;&amp;gt;&amp;gt; p.exists()
+True
+&lt;/pre&gt;
+&lt;p&gt;From the pathlib manual page pure paths - 'which provide purely computational operations without I/O'. Again RTFM ....&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>https://shimi.co.uk/blog/posts/purepath-is-purely-paths/</guid><pubDate>Thu, 15 Sep 2016 20:02:57 GMT</pubDate></item></channel></rss>
