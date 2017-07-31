@@ -6,12 +6,20 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://atleypnorth.github.io/categories/blogs-nikola-github.xml</loc>
+  <lastmod>2017-07-31T09:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atleypnorth.github.io/categories/cat_python-rtfm.xml</loc>
   <lastmod>2017-07-22T18:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atleypnorth.github.io/categories/cat_python.xml</loc>
   <lastmod>2017-07-22T18:55:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atleypnorth.github.io/categories/python-pprint-performance.xml</loc>
+  <lastmod>2017-07-31T09:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atleypnorth.github.io/categories/python.xml</loc>
@@ -23,10 +31,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atleypnorth.github.io/rss.xml</loc>
-  <lastmod>2017-07-22T18:55:00Z</lastmod>
+  <lastmod>2017-07-31T09:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atleypnorth.github.io/sitemap.xml</loc>
-  <lastmod>2017-07-22T18:55:00Z</lastmod>
+  <lastmod>2017-07-31T09:41:00Z</lastmod>
  </sitemap>
 </sitemapindex>

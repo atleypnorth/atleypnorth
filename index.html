@@ -10,7 +10,7 @@
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://atleypnorth.github.io/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/moved-to-github-pages/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/pprint-is-slow/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -60,7 +60,33 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/moved-to-github-pages/" class="u-url">Moved to github pages</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/pprint-is-slow/" class="u-url">pprint is slow</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Patrick Morris
+            </span></p>
+            <p class="dateline"><a href="posts/pprint-is-slow/" rel="bookmark"><time class="published dt-published" datetime="2017-07-30T12:02:20+01:00" title="2017-07-30 12:02">2017-07-30 12:02</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/pprint-is-slow/#disqus_thread" data-disqus-identifier="cache/posts/pprint-is-slow.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Wondering why your script is running slow ? Are you using pprint? That may be the reason why especially if you are using it to create
+log messages inside a frequently called loop (eg each line of a file read it or row of data generated or modified)</p>
+<p>You may think it isn't being called because you can't see the output, for example it is in a log.debug() call and the current
+log level is set to info.</p>
+<p>So</p>
+<ul class="simple">
+<li>Check how to get expensive functions lazily evaluated in log statements (i.e. they only get called when they are actually needed)</li>
+<li>Think about what you are printing / logging out - there is always a cost for it</li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/moved-to-github-pages/" class="u-url">Moved to github pages</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Patrick Morris

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Code, cooking, Cthulhu etc (python pprint performance)</title><link>https://atleypnorth.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://atleypnorth.github.io/categories/python-pprint-performance.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 31 Jul 2017 09:41:02 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>pprint is slow</title><link>https://atleypnorth.github.io/posts/pprint-is-slow/</link><dc:creator>Patrick Morris</dc:creator><description>&lt;div&gt;&lt;p&gt;Wondering why your script is running slow ? Are you using pprint? That may be the reason why especially if you are using it to create
+log messages inside a frequently called loop (eg each line of a file read it or row of data generated or modified)&lt;/p&gt;
+&lt;p&gt;You may think it isn't being called because you can't see the output, for example it is in a log.debug() call and the current
+log level is set to info.&lt;/p&gt;
+&lt;p&gt;So&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Check how to get expensive functions lazily evaluated in log statements (i.e. they only get called when they are actually needed)&lt;/li&gt;
+&lt;li&gt;Think about what you are printing / logging out - there is always a cost for it&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>python pprint performance</category><guid>https://atleypnorth.github.io/posts/pprint-is-slow/</guid><pubDate>Sun, 30 Jul 2017 11:02:20 GMT</pubDate></item></channel></rss>
