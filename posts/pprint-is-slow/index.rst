@@ -14,6 +14,5 @@ You may think it isn't being called because you can't see the output, for exampl
 log level is set to info.
 
 So 
-
 * Check how to get expensive functions lazily evaluated in log statements (i.e. they only get called when they are actually needed)
 * Think about what you are printing / logging out - there is always a cost for it
